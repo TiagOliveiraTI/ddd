@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  laravel:
+    build: 
+      context: .infra/php
+    image: otaodev/laravel:latest
+    container_name: laravel
+    volumes:
+      - ./:/var/www
+    networks:
+      - otaonet
+
+  nginx:
+    build: 
+      context: .infra/nginx
+    image: otaodev/nginx:latest
+    container_name: nginx
+    volumes:
+      - ./:/var/www:delegated
+    networks:
+      - otaonet
+    ports:
+      - "8080:80"
+
+networks:
+  otaonet:
+    driver: bridge
