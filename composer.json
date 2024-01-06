@@ -1,0 +1,9 @@
+{
+    "name": "otaodev/ddd",
+    "autoload": {
+        "psr-4": {
+            "Otaodev\\Ddd\\": "src/"
+        }
+    },
+    "require": {}
+}

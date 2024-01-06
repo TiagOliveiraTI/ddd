@@ -1,11 +1,11 @@
 version: '3'
 
 services:
-  laravel:
+  php:
     build: 
       context: .infra/php
-    image: otaodev/laravel:latest
-    container_name: laravel
+    image: otaodev/php:latest
+    container_name: php
     volumes:
       - ./:/var/www
     networks:
