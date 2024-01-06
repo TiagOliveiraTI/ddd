@@ -8,42 +8,26 @@ class Customer
         private string $id,
         private string $name,
         private string $address,
+        private bool $active = true
     )
     { }
 
-    public function getId(): string
-    {
-        return $this->id;
-    }
-
-    public function setId(string $id): self
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    public function getName(): string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): self
+    public function changeName(string $name): self
     {
         $this->name = $name;
 
         return $this;
     }
 
-    public function getAddress(): string
+    public function activate(): self
     {
-        return $this->address;
+        $this->active = true;
+        return $this;
     }
 
-    public function setAddress(string $address): self
+    public function deactivate(): self
     {
-        $this->address = $address;
-
+        $this->active = false;
         return $this;
     }
 }
