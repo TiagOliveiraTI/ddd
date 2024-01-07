@@ -59,7 +59,7 @@ class Order
     {
         return $this->total = array_reduce(
             $this->orderItems,
-            fn(float $acc, OrderItem $item): float => $acc + $item->getPrice(),  // Use getPrice() if it's a method
+            fn(float $acc, OrderItem $item): float => $acc + $item->orderItemTotal(),  // Use getPrice() if it's a method
             0.0
         );
     }

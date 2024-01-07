@@ -18,8 +18,8 @@ describe("Order unit tests", function () {
    })->throws(Exception::class, "Item quantity must be greater than zero");
 
    it("should calculate total", function() {
-      $item1 = new OrderItem('1', 'item 1', 10.0);
-      $item2 = new OrderItem('2', 'item 2', 40.0);
+      $item1 = new OrderItem('1', 'item 1', 10.0, 1);
+      $item2 = new OrderItem('2', 'item 2', 40.0, 1);
 
       $order = new Order('any_id', 'any_customer_id', [$item1]);
       $order->total();

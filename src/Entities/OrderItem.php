@@ -9,7 +9,8 @@ class OrderItem
     public function __construct(
         private string $id,
         private string $name,
-        private float $price
+        private float $price,
+        private int $quantity
     ) {
     }
 
@@ -27,4 +28,15 @@ class OrderItem
     {
         return $this->price;
     }
+
+    public function getQuantity(): int
+    {
+        return $this->quantity;
+    }
+
+    public function orderItemTotal(): float
+    {
+        return $this->getPrice() * $this->getQuantity();
+    }
+
 }
