@@ -79,11 +79,13 @@ class Order
             throw new LengthException("Customer id is required");
         }
 
-        if (count($this->orderItems) === 0) {
-            throw new LengthException("Item quantity must be greater than zero");
+        if (empty($this->orderItems)) {
+            throw new LengthException("Order must have at least one item");
         }
 
-
+        if (array_filter($this->orderItems, fn($item) => $item->getQuantity() <= 0 )) {
+            throw new LengthException("Item quantity must be greater than zero");
+        }
 
         return true;
     }

@@ -10,11 +10,17 @@ class OrderItem
         private string $id,
         private string $name,
         private float $price,
+        private string $productId,
         private int $quantity
     ) {
     }
 
     public function getId(): string
+    {
+        return $this->id;
+    }
+
+    public function getProductId(): string
     {
         return $this->id;
     }
