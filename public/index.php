@@ -26,3 +26,4 @@ $order = new Order('1', '123', [$item1, $item2]);
 echo '<pre>';
 print_r($customer);
 print_r($order);
+print_r($order->total());
