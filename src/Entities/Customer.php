@@ -6,7 +6,7 @@ namespace Otaodev\Ddd\Entities;
 
 use DomainException;
 use LengthException;
-use Otaodev\Ddd\Entities\Address;
+use Otaodev\Ddd\ValueObjects\Address;
 
 class Customer
 {
