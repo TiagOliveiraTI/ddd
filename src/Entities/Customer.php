@@ -10,11 +10,12 @@ use Otaodev\Ddd\ValueObjects\Address;
 
 class Customer
 {
+    private Address $address;
+    private bool $active = false;
+
     public function __construct(
         private string $id,
         private string $name,
-        private Address $address,
-        private bool $active = false
     )
     { 
         $this->validate();
@@ -44,7 +45,7 @@ class Customer
         return $this;
     }
 
-    public function setAdress(Address $address): self
+    public function setAddress(Address $address): self
     {
         $this->address = $address;
         return $this;
@@ -62,8 +63,17 @@ class Customer
         
     private function validate(): void
     {
+        if (strlen($this->id) === 0) {
+            throw new LengthException("Id is required");
+        }
+
         if (strlen($this->name) === 0) {
             throw new LengthException("Name is required");
         }
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
     }
 }

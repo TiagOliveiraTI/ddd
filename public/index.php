@@ -14,8 +14,8 @@ const ADDRESS_TIAGO = new Address(
     'Itanhaém'
 );
 
-$customer = new Customer('123', 'Tiago Oliveira', ADDRESS_TIAGO);
-
+$customer = new Customer('123', 'Tiago Oliveira');
+$customer->setAddress(ADDRESS_TIAGO);
 $customer->activate();
 
 $item1 = new OrderItem('1', 'Item 1', 10.5);
