@@ -22,7 +22,7 @@ class OrderItem
 
     public function getProductId(): string
     {
-        return $this->id;
+        return $this->productId;
     }
 
     public function getName(): string
