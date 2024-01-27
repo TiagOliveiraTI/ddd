@@ -12,6 +12,7 @@ class Customer
 {
     private Address $address;
     private bool $active = false;
+    private float $rewardPoints = 0;
 
     public function __construct(
         private string $id,
@@ -61,6 +62,21 @@ class Customer
         return $this->active;
     }
         
+    public function getName(): string
+    {
+        return $this->name;
+    }
+    
+    public function addRewardPoints(float $points): void
+    {
+        $this->rewardPoints += $points;
+    }
+
+    public function getRewardPoints(): float
+    {
+        return $this->rewardPoints;
+    }
+
     private function validate(): void
     {
         if (strlen($this->id) === 0) {
@@ -70,10 +86,5 @@ class Customer
         if (strlen($this->name) === 0) {
             throw new LengthException("Name is required");
         }
-    }
-
-    public function getName(): string
-    {
-        return $this->name;
     }
 }
