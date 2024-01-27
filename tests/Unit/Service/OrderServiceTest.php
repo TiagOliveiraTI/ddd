@@ -1,5 +1,6 @@
 <?php
 
+use Otaodev\Ddd\Entities\Customer;
 use Otaodev\Ddd\Entities\Order;
 use Otaodev\Ddd\Entities\OrderItem;
 use Otaodev\Ddd\Service\OrderService;
@@ -7,6 +8,17 @@ use Otaodev\Ddd\Service\OrderService;
 $sut = new OrderService;
 
 describe("Order service unit tests", function() use ($sut) {
+    
+    it("should place an order", function() use ($sut) {
+        $customer = new Customer("any_id_1", "Customer 1");
+        $item1 = new OrderItem("item_id_1", "Item 1", 10.0, 1, 1);
+        
+        $order = $sut->placeOrder($customer, [$item1]);
+        
+        expect($customer->getRewardPoints())->toBe(5.0);
+        expect($order->total([$item1]))->toBe(10.0);
+    });
+    
     it("should get total of all orders", function() use ($sut){
         $orderItem1 = new OrderItem("item_id_1", "Item 1", 100.0, 1, 1);
         $orderItem2 = new OrderItem("item_id_2", "Item 2", 200.0, 2, 2);
