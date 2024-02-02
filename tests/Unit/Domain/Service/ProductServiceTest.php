@@ -1,7 +1,7 @@
 <?php
 
-use Otaodev\Ddd\Entities\Product;
-use Otaodev\Ddd\Service\ProductService;
+use Otaodev\Ddd\Domain\Service\ProductService;
+use Otaodev\Ddd\Domain\Entities\Product;
 
 describe("Order Service unit tests", function() {
 

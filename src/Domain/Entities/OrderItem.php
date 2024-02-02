@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Otaodev\Ddd\Entities;
+namespace Otaodev\Ddd\Domain\Entities;
 
 class OrderItem
 {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Otaodev\Ddd\Entities;
+namespace Otaodev\Ddd\Domain\Entities;
 
 use LengthException;
-use Otaodev\Ddd\Entities\OrderItem;
+use Otaodev\Ddd\Domain\Entities\OrderItem;
 
 
 class Order

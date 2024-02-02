@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Otaodev\Ddd\Service;
+namespace Otaodev\Ddd\Domain\Service;
 
-use Otaodev\Ddd\Entities\Product;
+use Otaodev\Ddd\Domain\Entities\Product;
 
 class ProductService
 {

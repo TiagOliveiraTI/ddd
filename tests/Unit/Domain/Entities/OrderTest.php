@@ -1,7 +1,8 @@
 <?php
 
-use Otaodev\Ddd\Entities\Order;
-use Otaodev\Ddd\Entities\OrderItem;
+use Exception;
+use Otaodev\Ddd\Domain\Entities\Order;
+use Otaodev\Ddd\Domain\Entities\OrderItem;
 
 describe("Order unit tests", function () {
 

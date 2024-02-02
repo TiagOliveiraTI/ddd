@@ -2,11 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Otaodev\Ddd\Entities;
+namespace Otaodev\Ddd\Domain\Entities;
 
 use DomainException;
 use LengthException;
-use Otaodev\Ddd\ValueObjects\Address;
+use Otaodev\Ddd\Domain\ValueObjects\Address;
+
 
 class Customer
 {

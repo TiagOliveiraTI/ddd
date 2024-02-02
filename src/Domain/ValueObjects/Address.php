@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Otaodev\Ddd\ValueObjects;
+namespace Otaodev\Ddd\Domain\ValueObjects;
 
 use LengthException;
 use Stringable;

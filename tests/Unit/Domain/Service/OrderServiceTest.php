@@ -1,9 +1,10 @@
 <?php
 
-use Otaodev\Ddd\Entities\Customer;
-use Otaodev\Ddd\Entities\Order;
-use Otaodev\Ddd\Entities\OrderItem;
-use Otaodev\Ddd\Service\OrderService;
+use Otaodev\Ddd\Domain\Service\OrderService;
+use Otaodev\Ddd\Domain\Entities\Order;
+use Otaodev\Ddd\Domain\Entities\Customer;
+use Otaodev\Ddd\Domain\Entities\OrderItem;
+
 
 $sut = new OrderService;
 
