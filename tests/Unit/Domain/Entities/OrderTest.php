@@ -1,6 +1,5 @@
 <?php
 
-use Exception;
 use Otaodev\Ddd\Domain\Entities\Order;
 use Otaodev\Ddd\Domain\Entities\OrderItem;
 
