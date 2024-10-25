@@ -9,32 +9,32 @@ use Throwable;
 interface RepositoryInterface
 {
     /**
-     * @param mixed $entity
+     * @param object $entity
      * 
      * @return void
      * 
      * @throws Throwable If an error occurs during entity creation.
      */
-    public function create(mixed $entity): void;
+    public function create(object $entity): void;
 
     /**
-     * @param mixed $entity
+     * @param object $entity
      * 
      * @return void
      * 
      * @throws Throwable If an error occurs during entity creation.
      */
-    public function update(mixed $entity): void;
+    public function update(object $entity): void;
 
     /**
      * @param string $id
      * 
-     * @return mixed
+     * @return object
      */
-    public function find(string $id): mixed;
+    public function find(string $id): object;
 
     /**
-     * @return array<mixed>
+     * @return array<object>
      */
     public function findAll(): array;
 
