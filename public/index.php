@@ -1,10 +1,10 @@
 <?php
 
 
-use Otaodev\Ddd\Domain\Entities\Order;
-use Otaodev\Ddd\Domain\Entities\Customer;
-use Otaodev\Ddd\Domain\Entities\OrderItem;
-use Otaodev\Ddd\Domain\ValueObjects\Address;
+use Domain\Entities\Order;
+use Domain\Entities\Customer;
+use Domain\Entities\OrderItem;
+use Domain\ValueObjects\Address;
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 

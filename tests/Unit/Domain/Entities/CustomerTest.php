@@ -1,7 +1,7 @@
 <?php
 
-use Otaodev\Ddd\Domain\Entities\Customer;
-use Otaodev\Ddd\Domain\ValueObjects\Address;
+use Domain\Entities\Customer;
+use Domain\ValueObjects\Address;
 
 
 describe("Customer unit tests", function () {

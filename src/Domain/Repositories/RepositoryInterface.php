@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Otaodev\Ddd\Domain\Repositories;
+namespace Domain\Repositories;
 
 use Throwable;
 

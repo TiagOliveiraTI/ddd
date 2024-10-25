@@ -1,12 +1,12 @@
 <?php
 
-namespace Otaodev\Ddd\Domain\Service;
+namespace Domain\Service;
 
 use Exception;
 use Ramsey\Uuid\Uuid;
-use Otaodev\Ddd\Domain\Entities\Order;
-use Otaodev\Ddd\Domain\Entities\Customer;
-use Otaodev\Ddd\Domain\Entities\OrderItem;
+use Domain\Entities\Order;
+use Domain\Entities\Customer;
+use Domain\Entities\OrderItem;
 
 
 class OrderService

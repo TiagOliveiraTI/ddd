@@ -2,7 +2,12 @@
     "name": "otaodev/ddd",
     "autoload": {
         "psr-4": {
-            "Otaodev\\Ddd\\": "src/"
+            "Domain\\": "src/Domain/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
         }
     },
     "require-dev": {

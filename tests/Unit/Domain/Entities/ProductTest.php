@@ -1,6 +1,6 @@
 <?php
 
-use Otaodev\Ddd\Domain\Entities\Product;
+use Domain\Entities\Product;
 
 describe("Product unit tests", function () {
 
