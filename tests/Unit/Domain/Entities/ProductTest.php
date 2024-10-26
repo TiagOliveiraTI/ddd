@@ -1,35 +1,60 @@
 <?php
 
+declare(strict_types=1);
+
+namespace Tests\Unit\Domain\Entities;
+
 use Domain\Entities\Product;
+use Exception;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
 
-describe("Product unit tests", function () {
+final class ProductTest extends TestCase
+{
+    #[Test]
+    public function shouldThrowErrorWhenIdIsEmpty(): void
+    {
+       $this->expectException(Exception::class);
+       $this->expectExceptionMessage("Id is required");
+ 
+       new Product('', 'Product 1', 100.0);
+    }
 
-    it('should throw error when id is empty', function() {
-        $product = new Product('', 'Product 1', 100.0);
-    })->throws(Exception::class, 'Id is required');
+    #[Test]
+    public function shouldThrowErrorWhenNameIsEmpty(): void
+    {
+       $this->expectException(Exception::class);
+       $this->expectExceptionMessage("Name is required");
+ 
+       new Product('any_id', '', 100.0);
+    }
 
-    it('should throw error when name is empty', function() {
-        $product = new Product('any_id', '', 100.0);
-    })->throws(Exception::class, 'Name is required');
+    #[Test]
+    public function shouldThrowErrorWhenPriceIsLessThanZero(): void
+    {
+       $this->expectException(Exception::class);
+       $this->expectExceptionMessage("Price must be greater than zero");
+ 
+       new Product('any_id', 'any_name', -1);
+    }
 
-    it('should throw error when price is less than zero', function() {
-        $product = new Product('any_id', 'any_name', -1);
-    })->throws(Exception::class, 'Price must be greater than zero');
-
-    it('should change name', function() {
+    #[Test]
+    public function shouldCalculateTotal(): void
+    {
         $product = new Product('any_id', 'any_name', 1.0);
 
         $product->changeName('new_name');
 
-        expect($product->getName())->toBe('new_name');
-    });
+        $this->assertSame($product->getName(), 'new_name');
+    }
 
-    it('should change price', function() {
+    #[Test]
+    public function shouldChangePrice(): void
+    {
         $product = new Product('any_id', 'any_name', 1.0);
 
         $product->changePrice(20.50);
 
-        expect($product->getPrice())->toBe(20.50);
-    });
-
-});
+        $this->assertSame($product->getPrice(), 20.50);
+    }
+}

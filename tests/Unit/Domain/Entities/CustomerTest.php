@@ -1,65 +1,84 @@
 <?php
 
+declare(strict_types=1);
+
+namespace Tests\Unit\Domain\Entities;
+
 use Domain\Entities\Customer;
 use Domain\ValueObjects\Address;
+use Exception;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
 
+final class CustomerTest extends TestCase
+{
+   #[Test]
+   public function shouldThrowErrorWhenIdIsEmpty(): void
+   {
+      $this->expectException(Exception::class);
+      $this->expectExceptionMessage("Id is required");
+      new Customer("", "any_name");
+   }
 
-describe("Customer unit tests", function () {
+   #[Test]
+   public function shouldThrowErrorWhenNameIsEmpty() {
+      $this->expectException(Exception::class);
+      $this->expectExceptionMessage("Name is required");
+      new Customer("any_id", "");
+   }
 
-   it('should throw error when id is empty', function () {
-      $customer = new Customer("", "any_name");
-   })->throws(Exception::class, "Id is required");
-
-   it('should throw error when name is empty', function () {
-      $customer = new Customer("any_id", "");
-   })->throws(Exception::class, "Name is required");
-
-   it('should change name', function () {
+   #[Test]
+   public function shouldChangeName() {
       $customer = new Customer("any_id", "any_name");
 
       $customer->changeName("new_name");
 
-      expect($customer->getName())->toBe('new_name');
-   });
+      $this->assertSame($customer->getName(), 'new_name');
+   }
 
-   it('should throws when address is undefined', function () {
+   #[Test]
+   public function shouldThrowsWhenAddressIsUndefined() {
+      $this->expectException(Exception::class);
+      $this->expectExceptionMessage("Address is mandatory to activate a customer");
+
       $customer = new Customer("any_id", "any_name");
-
       $customer->activate();
+   }
 
-   })->throws(Exception::class, "Address is mandatory to activate a customer");
 
-   it('should activate a customer', function () {
+   #[Test]
+   public function shouldActivateACustomer() {
       $customer = new Customer("any_id", "any_name");
       $address = new Address("any_street", "1", "any_zip", "any_city");
 
       $customer->setAddress($address);
       $customer->activate();
 
-      expect($customer->isActive())->toBeTrue();
+      $this->assertTrue($customer->isActive());
 
-   });
+   }
 
-   it('should deactivate a customer', function () {
+   #[Test]
+   public function shouldDeactivateACustomer() {
       $customer = new Customer("any_id", "any_name");
 
       $customer->deactivate();
 
-      expect($customer->isActive())->toBeFalse();
+      $this->assertFalse($customer->isActive());
+   }
 
-   });
-
-   it("should add reward points", function () {
+   #[Test]
+   public function shouldAddRewardPoints() {
       $customer = new Customer("any_id", "any_name");
 
-      expect($customer->getRewardPoints())->tobe(0.0);
+      $this->assertSame($customer->getRewardPoints(), 0.0);
 
       $customer->addRewardPoints(10.0);
 
-      expect($customer->getRewardPoints())->tobe(10.0);
+      $this->assertSame($customer->getRewardPoints(), 10.0);
 
       $customer->addRewardPoints(10.0);
 
-      expect($customer->getRewardPoints())->tobe(20.0);
-   });
-});
+      $this->assertSame($customer->getRewardPoints(), 20.0);
+   }
+}
